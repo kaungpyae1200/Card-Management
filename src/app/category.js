@@ -1,7 +1,7 @@
 import { categoryGroup, categoryTemplate } from "../core/selectors"
 
 export const categoryUi = (text) => {
-    const category = categoryTemplate.textContent.cloneNode(true);
+    const category = categoryTemplate.content.cloneNode(true);
     category.querySelector(".cat-btn").innerText = text;
     return category;
 }

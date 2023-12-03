@@ -40,6 +40,7 @@ export const productUi = ({id,title,image,description,price,rating:{rate,count}}
 }
 
 export const productRender =(lists) => {
+    productGroup.innerHTML ="";
     lists.forEach(list => productGroup.append(productUi(list)))
     
 }

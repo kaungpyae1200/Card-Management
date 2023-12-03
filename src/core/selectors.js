@@ -5,3 +5,6 @@ export const categoryTemplate = document.querySelector("#categoryTemplate");
 export const productTemplate = document.querySelector("#productTemplate");
 export const fillStarTemplate = document.querySelector("#fillStarTemplate");
 export const outlineStarTemplate = document.querySelector("#outlineStarTemplate");
+export const searchInput = document.querySelector("#searchInput");
+export const searchBtn = document.querySelector("#searchBtn");
+

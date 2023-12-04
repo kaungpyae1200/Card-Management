@@ -3,5 +3,8 @@ import { searchInput } from "./selectors"
 
 
 export const searchBtnHandler =() => {
-    searchInput.focus()
+    // searchInput.classList.toggle("opacity-0 ");
+    // searchInput.classList.toggle("pointer-events-none");
+    searchInput.focus();
+
 }

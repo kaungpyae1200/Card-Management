@@ -1,4 +1,6 @@
-import { productGroup, productTemplate } from "../core/selectors";
+import { products } from "../core/data";
+import { cartGroup, productGroup, productTemplate } from "../core/selectors";
+import { cartUi } from "./cart";
 
 export const starRating = (rate) => {
    const fillStar = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -48,8 +50,6 @@ export const productRender =(lists) => {
 export const productGroupHandler = (event) => {
     if(event.target.classList.contains("add-to-cart-btn")){
         const currentProductCard = event.target.closest(".product-card");
-        const currentProductCardId = parseInt(currentProductCard.getAttribute("product-card-id"));
-        console.log(products.find(product => product.id === currentProductCardId));
-    
+       console.log(currentProductCard);
     }
-}
+};

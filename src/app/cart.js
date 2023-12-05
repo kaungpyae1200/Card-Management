@@ -2,7 +2,7 @@ import { cartTemplate } from "../core/selectors"
 
 
 
-export const cartUi = ({id,title,image,price}) => {
+export const cartUi = ({id, title, image, price}) => {
     const cart = cartTemplate.content.cloneNode(true);
     cart.querySelector("cart-img").src = image ;
     cart.querySelector("cart-title").innerText = title ;
@@ -12,4 +12,4 @@ export const cartUi = ({id,title,image,price}) => {
     return cart;
 
 
-}
+};

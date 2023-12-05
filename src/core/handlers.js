@@ -16,3 +16,4 @@ export const searchInputHandler = (event) => {
     productRender(products.filter(product => product.title.toLowerCase().search(event.target.value) !=-1)
     );
 };
+

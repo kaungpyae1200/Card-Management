@@ -25,6 +25,7 @@ return stars;
 
 export const productUi = ({id,title,image,description,price,rating:{rate,count}}) => {
     const product = productTemplate.content.cloneNode(true);
+    product.querySelector(".product-card").setAttribute("product-cart-id",id);
     product.querySelector(".product-img").src = image;
     product.querySelector(".product-title").innerText = title;
     product.querySelector(".product-description").innerText = description;
@@ -43,4 +44,12 @@ export const productRender =(lists) => {
     productGroup.innerHTML ="";
     lists.forEach(list => productGroup.append(productUi(list)))
     
+};
+export const productGroupHandler = (event) => {
+    if(event.target.classList.contains("add-to-cart-btn")){
+        const currentProductCard = event.target.closest(".product-card");
+        const currentProductCardId = parseInt(currentProductCard.getAttribute("product-card-id"));
+        console.log(products.find(product => product.id === currentProductCardId));
+    
+    }
 }

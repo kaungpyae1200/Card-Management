@@ -1,5 +1,5 @@
 import { products } from "../core/data";
-import { cartGroup, productGroup, productTemplate } from "../core/selectors";
+import { cartGroup, costTotal, productGroup, productTemplate } from "../core/selectors";
 import { cartUi } from "./cart";
 
 export const starRating = (rate) => {
@@ -59,5 +59,8 @@ export const productGroupHandler = (event) => {
       (product) => product.id === currentProductCardId
     );
     cartGroup.append(cartUi(currentProduct));
+
+    
+    
   }
 };

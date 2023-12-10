@@ -6,6 +6,9 @@ export const productGroup = document.querySelector("#productGroup");
 export const categoryTemplate = document.querySelector("#categoryTemplate");
 export const productTemplate = document.querySelector("#productTemplate");
 export const fillStarTemplate = document.querySelector("#fillStarTemplate");
-export const outlineStarTemplate = document.querySelector("#outlineStarTemplate");
-export const cartGroup   = document.querySelector("#cartGroup")
-export const cartTemplate   = document.querySelector("#cartTemplate")
+export const outlineStarTemplate = document.querySelector(
+  "#outlineStarTemplate"
+);
+export const cartGroup = document.querySelector("#cartGroup");
+export const cartTemplate = document.querySelector("#cartTemplate");
+export const costTotal = document.querySelector("#costTotal");

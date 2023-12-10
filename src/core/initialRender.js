@@ -3,9 +3,8 @@ import { productRender } from "../app/product";
 import { categories, products } from "./data";
 
 const initialRenders = () => {
-    categoryRender(categories)
-    productRender(products)
-}
-
+  categoryRender(categories);
+  productRender(products);
+};
 
 export default initialRenders;

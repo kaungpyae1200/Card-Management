@@ -1,8 +1,6 @@
 import { cartGroupObserver } from "../app/cart";
 
 const observers = () => {
-    
-cartGroupObserver()
-
-}
+  cartGroupObserver();
+};
 export default observers;

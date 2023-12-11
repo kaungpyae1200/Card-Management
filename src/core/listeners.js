@@ -16,7 +16,7 @@ const listeners = () => {
   searchBtn.addEventListener("click", searchBtnHandler);
   searchInput.addEventListener("keyup", searchInputHandler);
   productGroup.addEventListener("click", productGroupHandler);
-  cartGroup.addEventListener("click",cartGroupHandler );
+  cartGroup.addEventListener("click", cartGroupHandler);
 };
 
 export default listeners;

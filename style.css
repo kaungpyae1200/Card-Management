@@ -2,7 +2,6 @@
 
 @import url("./node_modules/sweetalert2/dist/sweetalert2.css");
 
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,11 +15,10 @@
 .cat-btn.active {
   @apply select-none text-white bg-gray-800 hover:text-white border border-gray-700 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-xs px-3 py-2 text-center;
 }
-.swal2-confirm{
+swal2-confirm {
   @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 !important;
 }
 
-.swal2-cancel{
+.swal2-cancel {
   @apply text-blue-700 bg-blue-100 hover:bg-blue-700 hover:text-white focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 !important;
-
 }

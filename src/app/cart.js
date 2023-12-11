@@ -1,7 +1,9 @@
+import { confirmBox } from "../core/function";
 import { cartGroup, cartTemplate } from "../core/selectors";
 
-export const cartUi = ({id, title, image, price }) => {
+export const cartUi = ({ id, title, image, price }) => {
   const cart = cartTemplate.content.cloneNode(true);
+  cart.querySelector(".product-in-cart").setAttribute("product-in-cart-id", id);
   cart.querySelector(".cart-img").src = image;
   cart.querySelector(".cart-title").innerText = title;
   cart.querySelector(".cart-price").innerText = price;
@@ -10,8 +12,24 @@ export const cartUi = ({id, title, image, price }) => {
   return cart;
 };
 
+export const removeCart = (id) => {
+  const currentCart = cartGroup.querySelector(`[product-in-cart-id = '${id}']`);
+  confirmBox(() => {
+    currentCart.remove();
+  });
+};
 
-export const cartGroupObsever = () => {
+export const cartGroupHandler = (event) => {
+  if (event.target.classList.contains("cart-del")) {
+    removeCart(
+      event.target
+        .closest(".product-in-cart")
+        .getAttribute("product-in-cart-id")
+    );
+  }
+};
+
+export const cartGroupObserver = () => {
   const process = () => {
     // count cart
     const cartCount = cartGroup.querySelectorAll(".product-in-cart").length;
@@ -19,22 +37,19 @@ export const cartGroupObsever = () => {
       .querySelectorAll(".cart-item-count")
       .forEach((el) => (el.innerText = cartCount));
 
-
-      // set total
+    // set total
     const cartCostTotal = [...cartGroup.querySelectorAll(".cart-cost")].reduce(
       (pv, cv) => pv + parseFloat(cv.innerText),
       0
     );
 
-    costTotal.innerText = cartCostTotal
-
-  }
+    costTotal.innerText = cartCostTotal.toFixed(2);
+  };
 
   const options = {
-    childList :true,
+    childList: true,
     subtree: true,
-
   };
   const observer = new MutationObserver(process);
   observer.observe(cartGroup, options);
-}
+};

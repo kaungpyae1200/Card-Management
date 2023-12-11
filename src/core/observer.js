@@ -1,8 +1,8 @@
-import { cartGroupObsever } from "../app/cart";
+import { cartGroupObserver } from "../app/cart";
 
-const observer = () => {
+const observers = () => {
     
-cartGroupObsever()
+cartGroupObserver()
 
 }
-export default observer;
+export default observers;

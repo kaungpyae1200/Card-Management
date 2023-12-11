@@ -9,6 +9,7 @@ export const searchBtnHandler = () => {
   searchInput.focus();
 };
 
+
 export const searchInputHandler = (event) => {
   productRender(
     products.filter(

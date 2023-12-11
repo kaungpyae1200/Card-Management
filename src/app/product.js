@@ -1,5 +1,10 @@
 import { products } from "../core/data";
-import { cartGroup, costTotal, productGroup, productTemplate } from "../core/selectors";
+import {
+  cartGroup,
+  costTotal,
+  productGroup,
+  productTemplate,
+} from "../core/selectors";
 import { cartUi } from "./cart";
 
 export const starRating = (rate) => {
@@ -42,6 +47,11 @@ export const productUi = ({
   product.querySelector(".product-rate").innerText = rate;
   product.querySelector(".product-stars").innerHTML = starRating(rate);
 
+if(cartGroup.querySelector(`[product-in-cart-id= '${id}']`)){
+  product.querySelector(".add-to-cart-btn").toggleAttribute("disabled")
+}
+
+
   return product;
 };
 
@@ -51,6 +61,7 @@ export const productRender = (lists) => {
 };
 export const productGroupHandler = (event) => {
   if (event.target.classList.contains("add-to-cart-btn")) {
+    event.target.toggleAttribute("disabled");
     const currentProductCard = event.target.closest(".product-card");
     const currentProductCardId = parseInt(
       currentProductCard.getAttribute("product-card-id")
@@ -59,8 +70,5 @@ export const productGroupHandler = (event) => {
       (product) => product.id === currentProductCardId
     );
     cartGroup.append(cartUi(currentProduct));
-
-    
-    
   }
 };

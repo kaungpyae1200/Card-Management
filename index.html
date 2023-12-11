@@ -168,7 +168,8 @@
             <span id="costTotal">0</span>
           </h1>
           <button type="button"
-            class="text-white block w-full bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Place
+          id="orderBtn"
+            class="text-white block w-full bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4  dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Place
             Order</button>
 
 
@@ -237,8 +238,10 @@
           <div class="font-heading mb-3">
             <p>$ <span class="product-price"> 123</span></p>
             <button type="button"
-              class="add-to-cart-btn text-gray-700 hover:text-white border border-gray-700 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 block w-full text-center dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
-              Add to Cart
+              class="disabled:bg-gray-700 disabled:text-white add-to-cart-btn group  text-gray-700 hover:text-white border border-gray-700 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 block w-full text-center dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
+              <span class="inline pointer-events-none group-disabled:hidden ">Add to Cart</span>
+              <span class="hidden pointer-events-none group-disabled:inline "> Cart Added</span>
+
             </button>
           </div>
         </div>

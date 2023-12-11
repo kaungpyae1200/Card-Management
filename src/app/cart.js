@@ -1,5 +1,5 @@
-import { confirmBox } from "../core/function";
-import { cartGroup, cartTemplate } from "../core/selectors";
+import { confirmBox } from "../core/functions";
+import { cartGroup, cartTemplate, productGroup } from "../core/selectors";
 
 export const cartUi = ({ id, title, image, price }) => {
   const cart = cartTemplate.content.cloneNode(true);
@@ -12,19 +12,53 @@ export const cartUi = ({ id, title, image, price }) => {
   return cart;
 };
 
-export const removeCart = (id) => {
+export const cartRemove = (id) => {
   const currentCart = cartGroup.querySelector(`[product-in-cart-id = '${id}']`);
-  confirmBox (() => {
-    currentCart.remove()
-  })
+  const currentProductCard = productGroup.querySelector(
+    `[product-card-id = '${id}']`
+  );
+  confirmBox(() => {
+    currentCart.remove();
+    currentProductCard
+      .querySelector(".add-to-cart-btn")
+      .toggleAttribute("disabled");
+  });
+};
+
+export const cartQuantityUpdate = (id, quantity) => {
+  const currentCart = cartGroup.querySelector(`[product-in-cart-id = '${id}']`);
+
+  const currentCartQ = currentCart.querySelector(".cart-q");
+  const currentCartPrice = currentCart.querySelector(".cart-price");
+  const currentCartCost = currentCart.querySelector(".cart-cost");
+
+  if (quantity > 0 || currentCartQ.innerText > 1) {
+    currentCartQ.innerText = parseInt(currentCartQ.innerText) + quantity;
+    currentCartCost.innerText =
+      currentCartQ.innerText * currentCartPrice.innerText;
+  }
 };
 
 export const cartGroupHandler = (event) => {
   if (event.target.classList.contains("cart-del")) {
-    removeCart(
+    cartRemove(
       event.target
         .closest(".product-in-cart")
-        .getAttribute(".product-in-cart-id")
+        .getAttribute("product-in-cart-id")
+    );
+  } else if (event.target.classList.contains("cart-q-add")) {
+    cartQuantityUpdate(
+      event.target
+        .closest(".product-in-cart")
+        .getAttribute("product-in-cart-id"),
+      1
+    );
+  } else if (event.target.classList.contains("cart-q-sub")) {
+    cartQuantityUpdate(
+      event.target
+        .closest(".product-in-cart")
+        .getAttribute("product-in-cart-id"),
+      -1
     );
   }
 };

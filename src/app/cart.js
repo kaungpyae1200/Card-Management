@@ -18,10 +18,15 @@ export const cartRemove = (id) => {
     `[product-card-id = '${id}']`
   );
   confirmBox(() => {
-    currentCart.remove();
-    currentProductCard
+    currentCart.classList.add("animate__animated", "animate__hinge")
+
+    currentCart.addEventListener("animationend", () => {
+      currentCart.remove()
+      currentProductCard
       .querySelector(".add-to-cart-btn")
       .toggleAttribute("disabled");
+    });
+    
   });
 };
 

@@ -85,10 +85,12 @@ export const addToCart = (id) => {
     {
       top: cartBtnInfo.top + "px",
       left: cartBtnInfo.left + "px",
+      height: 10 + "px",
+      rotate: 5 + "turn",
     },
   ];
   const animationOptions = {
-    duration: 2000,
+    duration: 500,
     iterations: 1,
   };
 
@@ -96,19 +98,22 @@ export const addToCart = (id) => {
   imgAnimation.addEventListener("finish", () => {
     console.log("finish");
     newImg.remove();
+    cartBtn.classList.add("animate__animated", "animate__tada");
+    cartBtn.addEventListener("animationend", () => {
+      cartBtn.classList.remove("animate__tada");
+    });
+    currentProductCard
+      .querySelector(".add-to-cart-btn")
+      .toggleAttribute("disabled");
+
+    // const currentProductCardId = parseInt(
+    //   currentProductCard.getAttribute("product-card-id")
+    // );
+    const currentProduct = products.find(
+      (product) => product.id === parseInt(id)
+    );
+    cartGroup.append(cartUi(currentProduct));
   });
-
-  currentProductCard
-    .querySelector(".add-to-cart-btn")
-    .toggleAttribute("disabled");
-
-  const currentProductCardId = parseInt(
-    currentProductCard.getAttribute("product-card-id")
-  );
-  const currentProduct = products.find(
-    (product) => product.id === currentProductCardId
-  );
-  cartGroup.append(cartUi(currentProduct));
 };
 
 export const productGroupHandler = (event) => {

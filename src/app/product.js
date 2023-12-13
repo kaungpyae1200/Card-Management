@@ -1,5 +1,6 @@
 import { products } from "../core/data";
 import {
+  cartBtn,
   cartGroup,
   costTotal,
   productGroup,
@@ -47,10 +48,9 @@ export const productUi = ({
   product.querySelector(".product-rate").innerText = rate;
   product.querySelector(".product-stars").innerHTML = starRating(rate);
 
-if(cartGroup.querySelector(`[product-in-cart-id= '${id}']`)){
-  product.querySelector(".add-to-cart-btn").toggleAttribute("disabled")
-}
-
+  if (cartGroup.querySelector(`[product-in-cart-id= '${id}']`)) {
+    product.querySelector(".add-to-cart-btn").toggleAttribute("disabled");
+  }
 
   return product;
 };
@@ -59,16 +59,62 @@ export const productRender = (lists) => {
   productGroup.innerHTML = "";
   lists.forEach((list) => productGroup.append(productUi(list)));
 };
+
+export const addToCart = (id) => {
+  const currentProductCard = productGroup.querySelector(
+    `[product-card-id = '${id}']`
+  );
+
+  const img = currentProductCard.querySelector(".product-img");
+  const imgInfo = img.getBoundingClientRect();
+  const cartBtnInfo = cartBtn.getBoundingClientRect();
+  console.log(cartBtnInfo);
+
+  const newImg = img.cloneNode(true);
+  newImg.classList.add("fixed");
+  newImg.classList.remove("ml-5");
+  newImg.style.top = imgInfo.top + "px";
+  newImg.style.left = imgInfo.left + "px";
+  app.append(newImg);
+
+  const animationKeyFrame = [
+    {
+      top: imgInfo.top + "px",
+      left: imgInfo.left + "px",
+    },
+    {
+      top: cartBtnInfo.top + "px",
+      left: cartBtnInfo.left + "px",
+    },
+  ];
+  const animationOptions = {
+    duration: 2000,
+    iterations: 1,
+  };
+
+  const imgAnimation = newImg.animate(animationKeyFrame, animationOptions);
+  imgAnimation.addEventListener("finish", () => {
+    console.log("finish");
+    newImg.remove();
+  });
+
+  currentProductCard
+    .querySelector(".add-to-cart-btn")
+    .toggleAttribute("disabled");
+
+  const currentProductCardId = parseInt(
+    currentProductCard.getAttribute("product-card-id")
+  );
+  const currentProduct = products.find(
+    (product) => product.id === currentProductCardId
+  );
+  cartGroup.append(cartUi(currentProduct));
+};
+
 export const productGroupHandler = (event) => {
   if (event.target.classList.contains("add-to-cart-btn")) {
-    event.target.toggleAttribute("disabled");
-    const currentProductCard = event.target.closest(".product-card");
-    const currentProductCardId = parseInt(
-      currentProductCard.getAttribute("product-card-id")
+    addToCart(
+      event.target.closest(".product-card").getAttribute("product-card-id")
     );
-    const currentProduct = products.find(
-      (product) => product.id === currentProductCardId
-    );
-    cartGroup.append(cartUi(currentProduct));
   }
 };

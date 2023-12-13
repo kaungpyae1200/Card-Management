@@ -13,4 +13,6 @@ export const cartGroup = document.querySelector("#cartGroup");
 export const cartTemplate = document.querySelector("#cartTemplate");
 export const costTotal = document.querySelector("#costTotal");
 export const orderBtn = document.querySelector("#orderBtn");
+export const cartBtn = document.querySelector("#cartBtn");
+
 

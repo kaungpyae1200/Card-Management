@@ -86,12 +86,13 @@ export const addToCart = (id) => {
       top: cartBtnInfo.top + "px",
       left: cartBtnInfo.left + "px",
       height: 10 + "px",
-      rotate: 5 + "turn",
+      rotate: 2 + "turn",
     },
   ];
   const animationOptions = {
-    duration: 500,
+    duration: 800,
     iterations: 1,
+    fill : "both"
   };
 
   const imgAnimation = newImg.animate(animationKeyFrame, animationOptions);
@@ -120,6 +121,6 @@ export const productGroupHandler = (event) => {
   if (event.target.classList.contains("add-to-cart-btn")) {
     addToCart(
       event.target.closest(".product-card").getAttribute("product-card-id")
-    );
+    );  
   }
 };

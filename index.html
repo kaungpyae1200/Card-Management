@@ -46,24 +46,23 @@
     <!-- Meta Tags Generated with https://metatags.io -->
   </head>
 
-  <body>
+  <body class="">
     <main id="app" class="flex flex-col min-h-screen">
       <header
-        class="border-2 border-b-gray-600 py-3 fixed w-full bg-white top-0 left-0 mb-10"
+        class="border-2 border-b-gray-600 py-3 fixed w-full bg-white top-0 left-0"
       >
         <div class="box">
           <div class="flex justify-between items-center">
-            <div>
-              <h1
-                data-aos="zoom-in-down"
-                data-aos-delay="100"
-                data-aos-duration="2000"
-                data-aos-once="false"
-                class="font-heading font-bold text-xl md:text-2xl sm:text-sm "
-              >
+            <div data-aos="zoom-in-down"
+            data-aos-delay="100"
+            data-aos-duration="2000"
+            data-aos-once="false">
+              <h1 class="font-heading font-bold text-xl md:text-2xl sm:text-sm">
                 MMS Solutions
               </h1>
-              <p class="text-gray-500 text-xs md:text-base sm:text-sm wow animate__animated animate__jello">
+              <p
+                class="text-gray-500 text-xs md:text-base sm:text-sm wow animate__animated animate__jello"
+              >
                 E-commerce App
               </p>
             </div>
@@ -71,7 +70,7 @@
               <input
                 type="text"
                 id="searchInput"
-                class="opacity-0 fixed sm:static w-2/5 mx-auto top-16 left-0 right-0 rounded-lg border-gray-700 focus:ring-gray-300 focus:ring-4 focus:outline-none"
+                class="opacity-0 fixed sm:static w-3/5 mx-auto top-16 left-0 right-0 rounded-lg border-gray-700 focus:ring-gray-300 focus:ring-4 focus:outline-none wow animate__animated animate__flipOutX"
                 placeholder="Search Product"
               />
 
@@ -136,7 +135,7 @@
 
       <section class="my-3">
         <div class="box">
-          <h3 class="sm:mt-2 font-bold font-heading mb-5">
+          <h3 class="sm:mt-2 font-bold font-heading mb-5 wow animate__animated animate__jello">
             Product Categories
           </h3>
           <div
@@ -277,7 +276,7 @@
       </div>
 
       <template id="categoryTemplate">
-        <button class="cat-btn whitespace-nowrap">All</button>
+        <button class="cat-btn whitespace-nowrap wow animate__animated animate__fadeOutDown">All</button>
       </template>
       <template id="productTemplate">
         <div class="product-card group">
@@ -286,7 +285,7 @@
             src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
             alt=""
           />
-          <div class="p-5 rounded-xl shadow-md">
+          <div class="p-5 rounded-xl shadow-xl wow animate__animated animate__jello">
             <h3
               class="product-title line-clamp-1 font-heading font-bold text-lg mb-1 mt-12"
             >
@@ -375,12 +374,14 @@
               </div>
             </div>
             <div
-              class="font-heading mb-3 flex justify-center items-center gap-6"
+              class="font-heading mb-3 flex justify-center items-center gap-6 font-bold"
             >
-              <p>$ <span class="product-price"> 123</span></p>
+              <p class="text-fuchsia-800 shadow-md rounded-lg ">
+                $ <span class="product-price"> 123</span>
+              </p>
               <button
                 type="button"
-                class="disabled:bg-gray-700 disabled:text-white add-to-cart-btn group text-gray-700 hover:text-white border border-gray-700 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 block text-center dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"
+                class="disabled:bg-gray-700 disabled:text-white add-to-cart-btn group text-gray-700 hover:text-white  border-gray-700 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-3 py-2 block text-center"
               >
                 <span class="inline pointer-events-none group-disabled:hidden"
                   >Add to Cart</span

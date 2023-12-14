@@ -68,6 +68,11 @@ export const cartGroupHandler = (event) => {
   }
 };
 
+
+
+
+
+
 export const cartGroupObserver = () => {
   const process = () => {
     // count cart
@@ -92,3 +97,73 @@ export const cartGroupObserver = () => {
   const observer = new MutationObserver(process);
   observer.observe(cartGroup, options);
 };
+
+
+
+
+
+// animations drawer 
+// export const addToCart = (id) => {
+//   const currentProductCart = cartGroup.querySelector(
+//     `[product-in-cart-id = '${id}']`
+//   );
+
+//   const img = currentProductCart.querySelector(".product-img");
+//   const imgInfo = img.getBoundingClientRect();
+//   const cartBtnInfo = cartBtn.getBoundingClientRect();
+//   console.log(cartBtnInfo);
+
+//   const newImg = img.cloneNode(true);
+//   newImg.classList.add("fixed");
+//   newImg.classList.remove("ml-5");
+//   newImg.style.top = imgInfo.top + "px";
+//   newImg.style.left = imgInfo.left + "px";
+//   app.append(newImg);
+
+//   const animationKeyFrame = [
+//     {
+//       top: imgInfo.top + "px",
+//       left: imgInfo.left + "px",
+//     },
+//     {
+//       top: cartBtnInfo.top + "px",
+//       left: cartBtnInfo.left + "px",
+//       height: 10 + "px",
+//       rotate: 2 + "turn",
+//     },
+//   ];
+//   const animationOptions = {
+//     duration: 800,
+//     iterations: 1,
+//     fill : "both"
+//   };
+
+//   const imgAnimation = newImg.animate(animationKeyFrame, animationOptions);
+//   imgAnimation.addEventListener("finish", () => {
+//     console.log("finish");
+//     newImg.remove();
+//     cartBtn.classList.add("animate__animated", "animate__tada");
+//     cartBtn.addEventListener("animationend", () => {
+//       cartBtn.classList.remove("animate__tada");
+//     });
+//     currentProductCart
+//       .querySelector(".add-to-cart-btn")
+//       .toggleAttribute("disabled");
+
+//     // const currentProductCardId = parseInt(
+//     //   currentProductCard.getAttribute("product-card-id")
+//     // );
+//     const currentProduct = products.find(
+//       (product) => product.id === parseInt(id)
+//     );
+//     cartGroup.append(cartUi(currentProduct));
+//   });
+// };
+
+// export const productGroupHandler = (event) => {
+//   if (event.target.classList.contains("cart-q-add")) {
+//     addToCart(
+//       event.target.closest(".product-in-cart").getAttribute("product-card-id")
+//     );  
+//   }
+// };
